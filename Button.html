@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <style media="screen">
+      *{
+        margin:0;
+        padding:0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="d1">
+      <!-- 1.改变button颜色 -->
+    <mt-button type="default">default</mt-button>
+    <mt-button type="primary">primary</mt-button>
+    <mt-button type="danger" disabled>danger</mt-button>
+    <br>
+    <!-- 2.改变button大小 -->
+    <mt-button size="small">small</mt-button>
+    <mt-button size="large">large</mt-button>
+    <mt-button size="normal">normal</mt-button>
+    <br>
+    <!--  3.绑定 click 事件-->
+    <mt-button @click.native="handleClick">点击触发 handleClick</mt-button>
+    <br>
+    <!-- 4.幽灵按钮 -->
+    <mt-button type="danger" plain @click.native="handleClick">plain</mt-button>
+  </div>
+      <!-- 先引入 Vue -->
+      <script src="JS/vue.js"></script>
+      <!-- 引入组件库 -->
+      <script src="JS/index.js"></script>
+      <script>
+         new Vue({
+           el:'#d1',
+           methods: {
+             handleClick: function() {
+                 this.$toast({
+                 message: '触发按钮',
+                 duration:1000
+               })
+             }
+           }
+         })
+      </script>
+  </body>
+</html>
